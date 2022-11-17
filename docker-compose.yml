@@ -1,5 +1,5 @@
 services:
-  pep_db:
+  db_instalacao_solar:
     image: postgres:13.5
     container_name: db_instalacao
     environment:
