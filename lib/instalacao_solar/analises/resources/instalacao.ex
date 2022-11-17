@@ -2,6 +2,27 @@ defmodule InstalacaoSolar.Analises.Instalacao do
   use Ash.Resource
 
   actions do
+    # pra passar por essa action, teria que usar o Ash.Changeset.for_create()
+    create :open do
+      # by default you can provide all public attributes to an action
+      # this action should only accpet the subject
+      # pelo o que eu entendi seria um changeset que descreve uma acao
+      # Como por exemplo, aprovar uma instalacao (nao fiz assim ainda)
+      # ele limita os attributos que poderia receber
+      accept [:nome_inversor]
+    end
+
+    update :finish do
+      # we don't want to accept any input here
+      accept []
+
+      change set_attribute(:status, :finished)
+      # A custom change could be added like so:
+      #
+      # change MyCustomChange
+      # change {MyCustomChange, opt: :val}
+    end
+
     defaults [:create, :read, :update, :destroy]
   end
 
