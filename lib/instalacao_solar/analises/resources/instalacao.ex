@@ -1,6 +1,11 @@
 defmodule InstalacaoSolar.Analises.Instalacao do
   use Ash.Resource,
-    data_layer: Ash.DataLayer.Ets
+    data_layer: AshPostgres.DataLayer
+
+  postgres do
+    table "instalacoes"
+    repo InstalacaoSolar.Repo
+  end
 
   actions do
     # pra passar por essa action, teria que usar o Ash.Changeset.for_create()

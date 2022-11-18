@@ -10,6 +10,10 @@ import Config
 config :instalacao_solar,
   ecto_repos: [InstalacaoSolar.Repo]
 
+# Ash apis
+config :instalacao_solar,
+  ash_apis: [InstalacaoSolar.Analise]
+
 # Configures the endpoint
 config :instalacao_solar, InstalacaoSolarWeb.Endpoint,
   url: [host: "localhost"],
