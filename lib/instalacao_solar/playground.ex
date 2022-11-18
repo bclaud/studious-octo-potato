@@ -21,4 +21,3 @@ defmodule InstalacaoSolar.Playground do
     end
   end
 end
-

@@ -53,7 +53,8 @@ defmodule InstalacaoSolar.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:elixir_sense, github: "elixir-lsp/elixir_sense", only: [:dev, :test]},
       {:ash, "~> 2.4"},
-      {:ash_postgres, "~> 1.1"}
+      {:ash_postgres, "~> 1.1"},
+      {:ash_json_api, "~> 0.30.1"}
     ]
   end
 

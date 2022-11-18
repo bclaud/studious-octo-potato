@@ -20,6 +20,12 @@ defmodule InstalacaoSolarWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/json_api" do
+    pipe_through(:api)
+
+    forward "/analise", InstalacaoSolar.Analises.Router
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", InstalacaoSolarWeb do
   #   pipe_through :api

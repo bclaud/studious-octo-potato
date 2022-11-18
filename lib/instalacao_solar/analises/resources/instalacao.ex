@@ -1,10 +1,23 @@
 defmodule InstalacaoSolar.Analises.Instalacao do
   use Ash.Resource,
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshPostgres.DataLayer,
+    extensions: [AshJsonApi.Resource]
 
   postgres do
     table "instalacoes"
     repo InstalacaoSolar.Repo
+  end
+
+  json_api do
+    type "instalacao"
+
+    routes do
+      base("/instalacao")
+
+      get(:read)
+
+      index :read
+    end
   end
 
   actions do

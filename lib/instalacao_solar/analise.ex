@@ -1,5 +1,12 @@
 defmodule InstalacaoSolar.Analise do
-  use Ash.Api
+  use Ash.Api, extensions: [AshJsonApi.Api]
+
+  # json_api do
+  #   router(InstalacaoSolar.Analises.Router)
+  #   prefix "/json_api"
+  #   serve_schema?(false)
+  #   log_errors?(true)
+  # end
 
   resources do
     # This defines the set of resources that can be used with this api
