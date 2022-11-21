@@ -14,8 +14,8 @@
         beamPkg = pkgs.beam.packagesWith pkgs.erlangR25;
 
         elixir = beamPkg.elixir.override {
-          version = "1.14.1";
-          sha256 = "/QQckiRvwmD3gdIo19TXM0bIgdxNx8eQwpd1RnEo35A=";
+          version = "1.14.2";
+          sha256 = "ABS+tXWm0vP3jb4ixWSi84Ltya7LHAuEkGMuAoZqHPA=";
         };
 
         elixir-ls = pkgs.beam.packages.erlang.elixir_ls;
