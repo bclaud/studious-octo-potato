@@ -1,7 +1,16 @@
 defmodule InstalacaoSolar.Analises.Instalacao do
   use Ash.Resource,
     data_layer: AshPostgres.DataLayer,
-    extensions: [AshJsonApi.Resource]
+    extensions: [AshJsonApi.Resource, AshGraphql.Resource]
+
+  graphql do
+    type :instalacao
+
+    queries do
+      get :get_instalacao, :read
+      list :list_instalacao, :read
+    end
+  end
 
   postgres do
     table "instalacoes"
@@ -24,7 +33,7 @@ defmodule InstalacaoSolar.Analises.Instalacao do
   end
 
   actions do
-    defaults [:create, :update, :destroy]
+    defaults [:read, :create, :update, :destroy]
     # pra passar por essa action, teria que usar o Ash.Changeset.for_create()
     create :open do
       # by default you can provide all public attributes to an action
@@ -35,17 +44,17 @@ defmodule InstalacaoSolar.Analises.Instalacao do
       accept [:nome_inversor]
     end
 
-    read :read do
+    # read :read do
       # por default nao adiciona paginacao, dessa forma da pra adicionar e chamar
       # pela api como por exemplo Api.read!(Instalacao, page: [limit: 10, offset: 30])
-      primary? true
+      # primary? true
 
-      pagination do
-        keyset? true
-        countable :by_default
-    end
+      # pagination do
+      #   keyset? true
+      #   countable :by_default
+      # end
 
-    end
+    # end
     update :rename_inversor do
       accept [:nome_inversor]
     end

@@ -55,7 +55,9 @@ defmodule InstalacaoSolar.MixProject do
       {:bandit, "~> 0.6.0"},
       {:ash, "~> 2.4"},
       {:ash_postgres, "~> 1.1"},
-      {:ash_json_api, "~> 0.30.1"}
+      {:ash_json_api, "~> 0.30.1"},
+      {:ash_graphql, "~> 0.21.0"},
+      {:absinthe_plug, "1.5.8"}
     ]
   end
 

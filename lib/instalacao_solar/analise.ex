@@ -1,5 +1,9 @@
 defmodule InstalacaoSolar.Analise do
-  use Ash.Api, extensions: [AshJsonApi.Api]
+  use Ash.Api, extensions: [AshJsonApi.Api, AshGraphql.Api]
+
+  graphql do
+    authorize? false
+  end
 
   # json_api do
   #   router(InstalacaoSolar.Analises.Router)
