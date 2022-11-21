@@ -16,6 +16,7 @@ config :instalacao_solar,
 
 # Configures the endpoint
 config :instalacao_solar, InstalacaoSolarWeb.Endpoint,
+  # adapter: Bandit.PhoenixAdapter,
   url: [host: "localhost"],
   render_errors: [
     formats: [html: InstalacaoSolarWeb.ErrorHTML, json: InstalacaoSolarWeb.ErrorJSON],
@@ -69,4 +70,16 @@ config :mime, :types, %{
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
+
+# Config spark for Ash framework
+config :spark, :formatter,
+  "Ash.Resource": [
+    section_order: [
+      :resource,
+      :identities,
+      :attributes,
+      :relationships
+    ]
+  ]
+
 import_config "#{config_env()}.exs"
