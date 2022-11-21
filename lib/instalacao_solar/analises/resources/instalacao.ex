@@ -1,35 +1,10 @@
 defmodule InstalacaoSolar.Analises.Instalacao do
   use Ash.Resource,
-    data_layer: AshPostgres.DataLayer,
-    extensions: [AshJsonApi.Resource, AshGraphql.Resource]
-
-  graphql do
-    type :instalacao
-
-    queries do
-      get :get_instalacao, :read
-      list :list_instalacao, :read
-    end
-  end
+    data_layer: AshPostgres.DataLayer
 
   postgres do
     table "instalacoes"
     repo InstalacaoSolar.Repo
-  end
-
-  json_api do
-    type "instalacao"
-
-    routes do
-      base("/instalacao")
-
-      get :read
-
-      index :read
-
-      patch :update
-      post :finish, route: "/finish"
-    end
   end
 
   actions do
@@ -59,7 +34,7 @@ defmodule InstalacaoSolar.Analises.Instalacao do
       accept [:nome_inversor]
     end
 
-    create :finish do
+    update :finish do
       # we don't want to accept any input here
       accept []
 

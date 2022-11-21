@@ -14,25 +14,10 @@ defmodule InstalacaoSolarWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/" do
-    forward "/gql", Absinthe.Plug, schema: InstalacaoSolar.Analises.Schema
-
-    forward "/playground", Absinthe.Plug.GraphiQL, schema: InstalacaoSolar.Analises.Schema, interface: :playground
-  end
-
   scope "/", InstalacaoSolarWeb do
     pipe_through :browser
 
     get "/", PageController, :home
-      # Absinthe.Plug.GraphiQL,
-      # schema: InstalacaoSolar.Analise.Schema
-      # interface: :playground
-  end
-
-  scope "/json_api" do
-    pipe_through(:api)
-
-    forward "/analise", InstalacaoSolar.Analises.Router
   end
 
   # Other scopes may use custom stacks.
